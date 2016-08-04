@@ -1,67 +1,3 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hangman</title><link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
-
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
-
-<!--Latest compiled and minified JavaScript -->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"> -->
-<!--<link rel="stylesheet" type="text/css" href="https://bootswatch.com/cyborg/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<!--<link href='http://fonts.googleapis.com/css?family=Average|Creepster' rel='stylesheet' type='text/css"> -->
- </head> 
-
-
-<header>
-
-<audio autoplay="">
-<!--  <source src="tawnyowls.wav" type="audio/wav"> -->
-   <source src="assets/images/hootowl2.mp3" type="audio/mp3">
-  Your browser does not support the audio tag.
-</audio>
-
-</header>
-
-
-
-
-
-
-<div class="wrapper">
-   <h1>Hangman</h1>
-    <h2>In the Garden</h2>
-    <p>Use the alphabet below to guess the word, or click hint to get a clue<br>(not that I think you don't have one!) </p>
-</div>
-
-<div class="wrapper">
-    <div id="buttons">
-    </div> 
-
-    <p id="categoryName"></p>
-    <div id="hold">
-    </div>
-    
-    <p id="mylives"></p>
-    <p id="clue">Clue: </p>  
-    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
-
-    <div class="container">
-      <button id="hint">Hint</button>
-      <button id="reset">Play again</button>
-    </div>
-
-
-
-
-
-<body>
-
-
 <script>
 
 
@@ -325,11 +261,3 @@ console.log(chosenCategory)
 }  // window.onload = function
 
 </script>
-
-
-</body>
-
-
-
-
-</html>
