@@ -1,0 +1,226 @@
+/* Variabes */  
+
+
+
+
+
+
+body { 
+  background: url("../images/gallows.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+/*  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, arial, 
+  "Lucida Grande",sans-serif;  */
+  font-family: 'Creepster', cursive;
+  color: white;
+  height:100%;
+  text-align:center;
+  font-size:18px;
+}
+
+
+
+
+.wrappper{ 
+ /* @include clear; */
+  width:100%;
+  margin:0 auto;
+  font-family:"Helvetica Neue Light", "Helvetica Neue", Helvetica, arial, 
+  "Lucida Grande",sans-serif; 
+}
+
+.buttons {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+
+
+
+canvas{
+  color: white;
+  border: white solid 2px;
+  padding:15px;
+  background-color: #A9A9A9;
+}
+
+h1, h2, h3 {
+/*	font-family: Roboto, sans-serif; */
+font-family: 'Creepster', cursive;
+	font-weight: 500;
+	text-transform: uppercase;
+   margin:5px 0;
+   color: #8B008B;
+   font-size: 56px;
+}
+
+h1 {
+	font-size: 56px;
+}
+
+h2 {
+	font-size: 45px;
+}
+
+p{
+  font-size: 36px;
+  color: black;
+}
+
+
+
+#alphabet {
+/*  @include clear; */
+  margin:15px auto;
+  padding:0;
+  max-width:900px;
+}
+
+#alphabet li {
+  float:left;
+  margin: 0 10px 10px 0;
+  list-style:none;
+  width:35px;
+  height:30px;
+  padding-top:10px;
+  background:white;
+  color: blue;
+  cursor:pointer;
+ /* @include corners(5px); */
+  border: solid 1px white;
+    
+    &:hover{
+      background: #8B008B;
+      border: solid 1px white;
+      color: white;
+    }
+}
+
+#my-word {
+  margin: 0;
+  display: block;
+  padding: 0;
+  display:block;
+}
+
+#my-word li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  display: inline-block;
+  padding: 0 10px;
+  font-size:1.6em;
+}
+
+.active {
+  cursor:default;
+ }  
+
+  
+ .hover {
+   transition: background-color 0.5s ease;
+      background: white;
+      border: solid 1px white;
+      color: #8B008B;
+    }
+
+}
+
+#mylives{
+  font-size:1.6em;
+  text-align:center;
+  display:block;
+}
+
+
+#hint{
+  font-family: 'Creepster', cursive;
+  text-align:center;
+  display:block;
+  border-radius: 25px;
+  background: #8B008B;
+  color:white;
+  border: solid 1px white;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:1.2em;
+  padding:18px 10px;
+  width:180px;
+  margin: 10px;
+  outline: none;
+  float: left;
+  margin-right: 5px;
+  margin-left: 770px;
+
+}
+
+#reset {
+  font-family: 'Creepster', cursive;
+  font-size:1.6em;
+  text-align:center;
+  display:block;
+  border-radius: 25px;
+  background: #8B008B;
+  color:white;
+  border: solid 1px white;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:1.2em;
+  padding:18px 10px;
+  width:180px;
+  margin: 10px;
+  outline: none;
+  float: left;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+
+
+#button{
+  font-family: 'Creepster', cursive;
+  border-radius: 25px;
+  background: #8B008B;
+  color:white;
+  border: solid 1px white;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:1.2em;
+  padding:18px 10px;
+  width:180px;
+  margin: 10px;
+  outline: none;
+}
+ 
+
+
+  
+ .hover {
+   transition: background-color 0.5s ease;
+        background: white;
+      border: solid 1px white;
+      color: #8B008B;
+    }
+}
+
+@media (max-width: 767px) {
+  #alphabet {
+  padding:0 0 0 15px;
+}
+  }
+
+  @media (max-width: 480px) {
+  #alphabet {
+  padding:0 0 0 25px;
+}
+  }
