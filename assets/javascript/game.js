@@ -1,70 +1,189 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hangman</title><link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
-
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
-
-<!--Latest compiled and minified JavaScript -->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"> -->
-<!--<link rel="stylesheet" type="text/css" href="https://bootswatch.com/cyborg/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<!--<link href='http://fonts.googleapis.com/css?family=Average|Creepster' rel='stylesheet' type='text/css"> -->
- </head> 
 
 
-<header>
+window.onload = function () {
 
-<audio autoplay="">
-<!--  <source src="tawnyowls.wav" type="audio/wav"> -->
-   <source src="assets/images/hootowl2.mp3" type="audio/mp3">
-  Your browser does not support the audio tag.
-</audio>
+  var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k' ,'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  
+  var categories;         // Array of topics
+  var chosenCategory;     // Selected category
+  var getHint;            // Word getHint
+  var word;              // Selected word
+  var guess;             // guess
+  var guesses = [ ];      // Stored guesses
+  var lives;             // Lives
+  var counter;           // Count correct guesses
+  var space;              // Number of spaces in word '-'
 
-</header>
+  // Get elements
+  var showLives = document.getElementById("mylives");
+  var showcategory = document.getElementById("scategory");
+  var getHint = document.getElementById("hint");
+  var showClue = document.getElementById("clue");
 
 
 
+  // create alphabet ul
+  var buttons = function () {
+    myButtons = document.getElementById('buttons');
+    letters = document.createElement('ul');
+
+    for (var i = 0; i < alphabet.length; i++) {
+      letters.id = 'alphabet';
+      list = document.createElement('li');
+      list.id = 'letter';
+      list.innerHTML = alphabet[i];
+      check();
+      myButtons.appendChild(letters);
+      letters.appendChild(list);
+   
+       } //for
+
+  }  //buttons
+
+  
+  // Select category
+  var selectCat = function () {
 
 
-<div class="wrapper">
-   <h1>Hangman</h1>
-    <h2>In the Garden</h2>
-    <p>Use the alphabet below to guess the word, or click hint to get a clue<br>(not that I think you don't have one!) </p>
-</div>
+if (chosenCategory === categories[0]) {
+     categoryName.innerHTML = "The Chosen Category is Flowers";
+    } else if (chosenCategory === categories[1])  {
+     categoryName.innerHTML = "The Chosen Category Is Trees";
+   } else if (chosenCategory === categories[2])  {
+     categoryName.innerHTML = "The Chosen Category Is Grasses";
+    }
+console.log(selectCat)
+console.log(chosenCategory)
+}  //select cat function
 
-<div class="wrapper">
-    <div id="buttons">
-    </div> 
+  // Create guesses ul
+   result = function () {
+    wordHolder = document.getElementById('hold');
+    correct = document.createElement('ul');
 
-    <p id="categoryName"></p>
-    <div id="hold">
-    </div>
+    for (var i = 0; i < word.length; i++) {
+      correct.setAttribute('id', 'my-word');
+      guess = document.createElement('li');
+      guess.setAttribute('class', 'guess');
+      if (word[i] === "-") {
+        guess.innerHTML = "-";
+        space = 1;
+      } else {
+        guess.innerHTML = "_";
+      }
+
+      guesses.push(guess);
+
+      wordHolder.appendChild(correct);
+      correct.appendChild(guess);
+      console.log(guess);
+      console.log(guesses)
+
+    }
+  }
+  
+
+  // Show lives
+   comments = function () {
+    showLives.innerHTML = "You have " + lives + " lives left, choose wisely grasshopper!";
+    if (lives < 1) {
+      var won = false;
+      showLives.innerHTML = "You Lose! Game Over!! If you want to try again push the Play Again below";
+    }
+    for (var i = 0; i < guesses.length; i++) {
+      if (counter + space === guesses.length) {
+        var won = true;
+        showLives.innerHTML = "Congratulations! You Win!"    
+
+      } //if
+    }
+     //for
+  }  //comments = function ()
+
+  
+
+  // OnClick Function
+   check = function () {
+    list.onclick = function () {
+      var guess = (this.innerHTML);
+      this.setAttribute("class", "active");
+      this.onclick = null;
+      for (var i = 0; i < word.length; i++) {
+        if (word[i] === guess) {
+          guesses[i].innerHTML = guess;
+          counter += 1;
+          console.log(guess)
+        } 
+        console.log(guess)
+      }
+      var j = (word.indexOf(guess));
+      if (j === -1) {
+        lives -= 1;
+        comments();
+        animate();
+      } else {
+        comments();
+      }
+    }
+  }  //check function
+ 
     
-    <p id="mylives"></p>
-    <p id="clue">Clue: </p>  
+// Play
+
+  play = function () {
+    categories = [
+        ["rose", "poppy", "peony", "dahlia", "marigold"],
+        ["birch", "myrtle", "spruce", "oak", "maple"],
+        ["miscanthus", "morning-light", "maiden", "pampas", "switchgrass"],
+    ];
+
+    chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+    word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+    word = word.replace(/\s/g, "-");
+
+    console.log(word);
+
+    buttons();
+
+    guesses = [];
+    lives = 10;
+    counter = 0;
+    space = 0;
+    result();
+    comments();
+    selectCat();
 
 
-    <div class="container">
-      <button id="hint">Hint</button>
-      <button id="reset">Play again</button>
-    </div>
+  }  // play function
+
+  play()
+  
+  //Hint
+
+    hint.onclick = function() {
+
+      hints = [
+        ["Valentines's day gift", "Flanders", "Sarah Bernhardt", "Dinner Plate", "Old-fashioned"],
+        ["River", "Lilac of the South", "Colorado", "Live", "Crimson Queen"],
+        ["Can run rampant", "Glows in the sun", "Many varieties", "Very Tall", "Could be used as a whip"]
+    ];
+
+    var categoryIndex = categories.indexOf(chosenCategory);
+    var hintIndex = chosenCategory.indexOf(word);
+    showClue.innerHTML = "Clue:-" +  hints[categoryIndex][hintIndex];
+  };  //hint function
+
+   // Reset to play again
+
+    document.getElementById('reset').onclick = function() {
+    correct.parentNode.removeChild(correct);
+    letters.parentNode.removeChild(letters);
+    showClue.innerHTML = "";
 
 
+    play();
 
-
-
-<script src ="assets/javascript/game3.js"></script>
-
-
-
-
-
-
-
-
-</html>
+  }  // document.getElementById('reset').onclick = function()
+}  // window.onload = function
